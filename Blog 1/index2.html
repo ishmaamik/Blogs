@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Fruit App</title>
+</head>
+<body>
+    <div class="container">
+        <ul id="fruits">
+            <!-- List items will be added here -->
+        </ul>
+        <br />
+        <input type="text" id="fruitInput" placeholder="Enter a fruit">
+        <button onclick="addFruit()">Add Item</button>
+    </div>
+
+    <script>
+        // Initialize the fruits array
+        var fruits = ['apple', 'guava', 'mango', 'orange'];
+
+        // Function to add fruit
+        function addFruit() {
+            var input = document.getElementById('fruitInput');
+            var fruitName = input.value;
+            fruits.push(fruitName);
+            fruits.sort();
+            displayFruits();
+            input.value = ''; // Clear the input after adding
+        }
+
+        // Function to display fruits in the list
+        function displayFruits() {
+            var list = document.getElementById('fruits');
+            list.innerHTML = ''; // Clear the list before adding new items
+            fruits.forEach(function(fruit, index) {
+                var li = document.createElement('li');
+                li.textContent = fruit;
+                list.appendChild(li);
+            });
+        }
+
+        // Initial display of fruits
+        displayFruits();
+    </script>
+</body>
+</html>
